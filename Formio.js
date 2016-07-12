@@ -40,6 +40,13 @@ module.exports = function (config) {
       return this.currentUser.authenticate(form);
     },
 
+    setToken: function(token) {
+      this.currentUser = new User({'token': token});
+      Form.currentUser = this.currentUser;
+      Project.currentUser = this.currentUser;
+      return this.currentUser;
+    },
+
     /** Expose the other classes. */
     User: User,
     Form: Form,
