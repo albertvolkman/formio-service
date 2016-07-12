@@ -33,8 +33,8 @@ module.exports = function (config) {
      * @param password
      * @returns {*}
      */
-    authenticate: function (email, password, form) {
-      this.currentUser = new User(email, password);
+    authenticate: function (creds, form) {
+      this.currentUser = new User(creds);
       Form.currentUser = this.currentUser;
       Project.currentUser = this.currentUser;
       return this.currentUser.authenticate(form);
